@@ -3,7 +3,11 @@ const { Client } = require('./lib/client');
 module.exports = function verifyCredentials(credentials, cb) {
   return Promise.resolve().then(async () => {
     this.logger.info('Verification started');
-    const { accessKeyId, accessKeySecret: secretAccessKey, region } = credentials;
+    let inputCreds = credentials;
+    if (credentials.payload) {
+      inputCreds = Object.assign(JSON.parse(credentials.payload), credentials);
+    }
+    const { accessKeyId, accessKeySecret: secretAccessKey, region } = inputCreds;
     if (!accessKeyId || !secretAccessKey || !region) {
       const errMessage = 'Parameters accessKeyId, secretAccessKey and region are required';
       this.logger.error(errMessage);

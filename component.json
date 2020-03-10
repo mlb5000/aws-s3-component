@@ -23,6 +23,20 @@
     }
   },
   "actions": {
+    "sendSqsMessage": {
+      "title": "Send SQS Message",
+      "description": "Write a message to a specific SQS queue",
+      "main": "./lib/actions/sendSqsMessage.js",
+      "fields": {
+        "queueName": {
+          "viewClass": "TextFieldView",
+          "label": "Default Bucket Name and folder",
+          "placeholder": "my-fancy-bucket",
+          "note": "Default Bucket Name and folder will override if 'Bucket Name and folder' field is set in metadata",
+          "required": false
+        }
+      }
+    },
     "streamToFile": {
       "title": "Write file",
       "description": "Put stream as file into S3 bucket",

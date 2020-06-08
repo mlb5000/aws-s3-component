@@ -29,7 +29,9 @@
     "elasticio-component"
   ],
   "dependencies": {
+    "@sentry/node": "^5.16.0",
     "aws-sdk": "2.314.0",
+    "axios": "^0.19.2",
     "bunyan": "1.8.12",
     "co": "4.6.0",
     "csv": "0.4.6",
